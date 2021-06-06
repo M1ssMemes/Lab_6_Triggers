@@ -1,0 +1,34 @@
+﻿<Window x:Class="lab6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab6"
+        mc:Ignorable="d"
+        Title="Лабораторная работа 6" Height="532" Width="704">
+    <Grid Background="#FFFFFBF0" Name="myGrid">
+        <GroupBox Margin="490,202,9,145" Header="Логический элемент" >
+            <StackPanel  Height="151" Name="Oper">
+                <RadioButton Content="И" Name="LogI" Tag="1"  GroupName="LogElem" Height="20" Margin="0,10,0,0"/>
+                <RadioButton Content="Отрицание" Name="LogNe" Tag="2"  GroupName="LogElem" Height="20"/>
+                <RadioButton Content="ИЛИ" Name="LogOr" Tag="3"  GroupName="LogElem" Height="20"/>
+                <RadioButton Content="И НЕ" Name="LogINe" Tag="4"  GroupName="LogElem" Height="20"/>
+                <RadioButton Content="ИЛИ НЕ" Name="LogOrNe" Tag="5"  GroupName="LogElem" Height="20"/>
+                <RadioButton Content="Эквивалентность" Name="LogEqual" Tag="6"   GroupName="LogElem" Height="20"/>
+                <RadioButton Content="Сложение по модулю 2" Name="LogMod2" Tag="7"  GroupName="LogElem" Height="20"/>
+            </StackPanel>
+        </GroupBox>
+        
+        <Canvas Name="Graph" Margin="34,10,220,53" Background="#FFACF0E3"/>
+        <Button Content="Добавить элемент" HorizontalAlignment="Left" Margin="505,383,0,0" VerticalAlignment="Top" Width="171" Height="26" Click="Button_Click"/>
+        <Button Content="Вычислить" HorizontalAlignment="Left" Margin="505,428,0,0" VerticalAlignment="Top" Width="171" Height="26" Click="Button_Click_1"/>
+        <GroupBox Header="Количество элементов" Margin="489,10,0,336" Name="Elem">
+            <StackPanel  Margin="0,10,0,0"> 
+                <RadioButton Content="2" x:Name="Enter2" GroupName="Entry" Height="28"/>
+                <RadioButton Content="3" x:Name="Enter3" GroupName="Entry" Height="28"/>
+                <RadioButton Content="4" x:Name="Enter4" GroupName="Entry" Height="28"/>
+                <RadioButton Content="5" x:Name="Enter5" GroupName="Entry" Height="28"/>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>
