@@ -28,15 +28,18 @@ namespace lab6
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Graph.Children.Clear();
+
             List<RadioButton> radioButtons = Oper.Children.OfType<RadioButton>().ToList();
             radioButtons.AddRange(Ent.Children.OfType<RadioButton>().ToArray());
 
             try
             {
                 RadioButton rbTarget = radioButtons.Where(r => r.GroupName == "LogElem" && r.IsChecked == true).Single();
+
                 DrawSquare(int.Parse(rbTarget.Tag.ToString()));
 
                 RadioButton rbTarget2 = radioButtons.Where(r => r.GroupName == "Entry" && r.IsChecked == true).Single();
+
                 DrawEnters(int.Parse(rbTarget2.Content.ToString()));
 
                 DrawAnswers();
@@ -49,21 +52,7 @@ namespace lab6
 
         }
 
-        private void DrawAnswers()
-        {
-            SolidColorBrush color = new SolidColorBrush();
-            color.Color = Colors.Green;
 
-            double x1 = 250;
-            double y1 = 130;
-            for (int i = 0; i < 2; i++)
-            {
-                var line = CreateLine(x1, y1, x1 + 20, y1, color);
-                Graph.Children.Add(line);
-                DrawTextBoxOut(x1 + 20, y1 - 10);
-                y1 += 30;
-            }
-        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -81,59 +70,182 @@ namespace lab6
                 }
                 else
                 {
-                    MessageBox.Show("Введите корректные данные сигналов");
+                    MessageBox.Show("Введите корректные данные сигналов, используя символы 1 и 0");
                     return;
                 }
-
             }
 
             var inp = rbTarget.Tag.ToString();
 
+            bool flag = true;
+
             switch (inp)
             {
                 case "1":
-                    bool flag = true;
+                    flag = true;
                     for (var i = 0; i < input.Length; i++)
                     {
                         if (input[i].Text == "0")
                         {
                             flag = false;
-                            break;
                         }
 
                     }
+
                     if (flag == false)
                     {
-
+                        output[0].Text = "0";
+                        output[1].Text = "1";
                     }
-                    
-
+                    else
+                    {
+                        output[0].Text = "1";
+                        output[1].Text = "0";
+                    }
                     break;
 
                 case "2":
+                    flag = false;
+                    for (var i = 0; i < input.Length; i++)
+                    {
+                        if (input[i].Text == "1")
+                        {
+                            flag = true;
+                        }
+                    }
+
+                    if (flag == false)
+                    {
+                        output[0].Text = "0";
+                        output[1].Text = "1";
+                    }
+                    else
+                    {
+                        output[0].Text = "1";
+                        output[1].Text = "0";
+                    }
                     break;
 
                 case "3":
+                    flag = true;
+                    for (var i = 0; i < input.Length; i++)
+                    {
+                        if (input[i].Text == "0")
+                        {
+                            flag = false;
+                        }
+
+                    }
+
+                    if (flag == true)
+                    {
+                        output[0].Text = "0";
+                        output[1].Text = "1";
+                    }
+                    else
+                    {
+                        output[0].Text = "1";
+                        output[1].Text = "0";
+                    }
                     break;
 
                 case  "4":
+                    flag = false;
+                    for (var i = 0; i < input.Length; i++)
+                    {
+                        if (input[i].Text == "1")
+                        {
+                            flag = true;
+                        }
+                    }
+
+                    if (flag == true)
+                    {
+                        output[0].Text = "0";
+                        output[1].Text = "1";
+                    }
+                    else
+                    {
+                        output[0].Text = "1";
+                        output[1].Text = "0";
+                    }
                     break;
 
+
                 case "5":
+                    flag = true;
+                    for (var i = 0; i < input.Length - 1; i++)
+                    {
+                        if (input[i].Text == input[i+1].Text)
+                        {
+
+                        }
+                        else
+                        {
+                            flag = false;
+                        }
+
+                        if (flag == true)
+                        {
+                            output[0].Text = "1";
+                            output[1].Text = "0";
+                        }
+                        else
+                        {
+                            output[0].Text = "0";
+                            output[1].Text = "1";
+                        }
+                    }
                     break;
 
                 case "6":
+                    flag = true;
+                    for (var i = 0; i < input.Length - 1; i++)
+                    {
+                        if (input[i].Text != input[i + 1].Text)
+                        {
+
+                        }
+                        else
+                        {
+                            flag = false;
+                        }
+
+                        if (flag == true)
+                        {
+                            output[0].Text = "1";
+                            output[1].Text = "0";
+                        }
+                        else
+                        {
+                            output[0].Text = "0";
+                            output[1].Text = "1";
+                        }
+                    }
                     break;
 
                 case "7":
+                    flag = true;
+                    for (var i = 0; i < input.Length - 1; i++)
+                    {
+                        if ((input[i].Text == "1") && (input[i+1].Text == "0"))
+                        {
+                            flag = false;
+                        }
+                    }
+
+                    if (flag == true)
+                    {
+                        output[0].Text = "1";
+                        output[1].Text = "0";
+                    }
+                    else
+                    {
+                        output[0].Text = "0";
+                        output[1].Text = "1";
+                    }
                     break;
             }
-                
-
-            
-           
-
-
         }
 
         private void DrawEnters(int num)
@@ -143,6 +255,7 @@ namespace lab6
 
             double x1 = 180;
             double y1 = 130;
+
             for (int i = 0; i < num; i++)
             {
                 var line = CreateLine(x1, y1, x1 + 20, y1, color);
@@ -150,6 +263,33 @@ namespace lab6
                 DrawTextBoxInp(x1 - 20, y1 - 10);
                 y1 += 30;
             }
+        }
+
+        private void DrawAnswers()
+        {
+            SolidColorBrush color = new SolidColorBrush();
+            color.Color = Colors.Green;
+
+            double x1 = 250;
+            double y1 = 130;
+            for (int i = 0; i < 2; i++)
+            {
+                var line = CreateLine(x1, y1, x1 + 20, y1, color);
+                Graph.Children.Add(line);
+                DrawTextBoxOut(x1 + 20, y1 - 10);
+                y1 += 30;
+            }
+
+            Ellipse ellipse = new Ellipse();
+
+            ellipse.Width = 10;
+            ellipse.Height = 10;
+            ellipse.Fill = Brushes.Green;
+
+            Canvas.SetLeft(ellipse, x1 - 5);
+            Canvas.SetTop(ellipse, y1 - 35);
+
+            Graph.Children.Add(ellipse);
         }
 
         private void DrawTextBoxOut(double x, double y)
@@ -236,15 +376,8 @@ namespace lab6
                     Graph.Children.Add(text);
                     break;
 
-                case 2:
-                    text.Text = "-";
-                    text.FontSize = 50;
-                    Canvas.SetLeft(text, 220);
-                    Canvas.SetTop(text, 100);
-                    Graph.Children.Add(text);
-                    break;
 
-                case 3:
+                case 2:
                     text.Text = "|";
                     text.FontSize = 20;
                     Canvas.SetLeft(text, 220);
@@ -252,7 +385,7 @@ namespace lab6
                     Graph.Children.Add(text);
                     break;
 
-                case 4:
+                case 3:
                     text.Text = "&-";
                     text.FontSize = 20;
                     Canvas.SetLeft(text, 220);
@@ -260,7 +393,7 @@ namespace lab6
                     Graph.Children.Add(text);
                     break;
 
-                case 5:
+                case 4:
                     text.Text = "|-";
                     text.FontSize = 20;
                     Canvas.SetLeft(text, 220);
@@ -268,7 +401,7 @@ namespace lab6
                     Graph.Children.Add(text);
                     break;
 
-                case 6:
+                case 5:
                     text.Text = "==";
                     text.FontSize = 20;
                     Canvas.SetLeft(text, 220);
@@ -276,8 +409,16 @@ namespace lab6
                     Graph.Children.Add(text);
                     break;
 
-                case 7:
+                case 6:
                     text.Text = "М2";
+                    text.FontSize = 20;
+                    Canvas.SetLeft(text, 220);
+                    Canvas.SetTop(text, 100);
+                    Graph.Children.Add(text);
+                    break;
+
+                case 7:
+                    text.Text = "->";
                     text.FontSize = 20;
                     Canvas.SetLeft(text, 220);
                     Canvas.SetTop(text, 100);

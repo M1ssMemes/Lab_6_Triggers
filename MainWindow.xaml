@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         Title="Лабораторная работа 6" Height="532" Width="704">
     <Grid Background="#FFFFFBF0" Name="myGrid">
-        <GroupBox Margin="491,189,8,127" Header="Логический элемент" >
+        <GroupBox Margin="491,189,8,135" Header="Логический элемент" >
             <StackPanel  Height="151" Name="Oper">
                 <RadioButton Content="И" Name="LogI" Tag="1"  GroupName="LogElem" Height="20" Margin="0,10,0,0"/>
-                <RadioButton Content="Отрицание" Name="LogNe" Tag="2"  GroupName="LogElem" Height="20"/>
-                <RadioButton Content="ИЛИ" Name="LogOr" Tag="3"  GroupName="LogElem" Height="20"/>
-                <RadioButton Content="И НЕ" Name="LogINe" Tag="4"  GroupName="LogElem" Height="20"/>
-                <RadioButton Content="ИЛИ НЕ" Name="LogOrNe" Tag="5"  GroupName="LogElem" Height="20"/>
-                <RadioButton Content="Эквивалентность" Name="LogEqual" Tag="6"   GroupName="LogElem" Height="20"/>
-                <RadioButton Content="Сложение по модулю 2" Name="LogMod2" Tag="7"  GroupName="LogElem" Height="20"/>
+                <RadioButton Content="ИЛИ" Name="LogOr" Tag="2"  GroupName="LogElem" Height="20"/>
+                <RadioButton Content="И НЕ" Name="LogINe" Tag="3"  GroupName="LogElem" Height="20"/>
+                <RadioButton Content="ИЛИ НЕ" Name="LogOrNe" Tag="4"  GroupName="LogElem" Height="20"/>
+                <RadioButton Content="Эквивалентность" Name="LogEqual" Tag="5"   GroupName="LogElem" Height="20"/>
+                <RadioButton Content="Сложение по модулю 2" Name="LogMod2" Tag="6"  GroupName="LogElem" Height="20"/>
+                <RadioButton Content="Импликация" Name="impl" Tag="7"  GroupName="LogElem" Height="20"/>
             </StackPanel>
         </GroupBox>
 
