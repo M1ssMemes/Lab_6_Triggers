@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Лабораторная работа 6" Height="532" Width="704">
     <Grid Background="#FFFFFBF0" Name="myGrid">
-        <GroupBox Margin="490,202,9,145" Header="Логический элемент" >
+        <GroupBox Margin="491,189,8,127" Header="Логический элемент" >
             <StackPanel  Height="151" Name="Oper">
                 <RadioButton Content="И" Name="LogI" Tag="1"  GroupName="LogElem" Height="20" Margin="0,10,0,0"/>
                 <RadioButton Content="Отрицание" Name="LogNe" Tag="2"  GroupName="LogElem" Height="20"/>
@@ -18,12 +18,12 @@
                 <RadioButton Content="Сложение по модулю 2" Name="LogMod2" Tag="7"  GroupName="LogElem" Height="20"/>
             </StackPanel>
         </GroupBox>
-        
+
         <Canvas Name="Graph" Margin="34,10,220,53" Background="#FFACF0E3"/>
-        <Button Content="Добавить элемент" HorizontalAlignment="Left" Margin="505,383,0,0" VerticalAlignment="Top" Width="171" Height="26" Click="Button_Click"/>
-        <Button Content="Вычислить" HorizontalAlignment="Left" Margin="505,428,0,0" VerticalAlignment="Top" Width="171" Height="26" Click="Button_Click_1"/>
+        <Button Content="Добавить элемент" HorizontalAlignment="Left" Margin="500,400,0,0" VerticalAlignment="Top" Width="171" Height="26" Click="Button_Click"/>
+        <Button Content="Вычислить" HorizontalAlignment="Left" Margin="500,445,0,0" VerticalAlignment="Top" Width="171" Height="26" Click="Button_Click_1"/>
         <GroupBox Header="Количество элементов" Margin="489,10,0,336" Name="Elem">
-            <StackPanel  Margin="0,10,0,0"> 
+            <StackPanel  Margin="0,10,0,0" Name ="Ent">
                 <RadioButton Content="2" x:Name="Enter2" GroupName="Entry" Height="28"/>
                 <RadioButton Content="3" x:Name="Enter3" GroupName="Entry" Height="28"/>
                 <RadioButton Content="4" x:Name="Enter4" GroupName="Entry" Height="28"/>
